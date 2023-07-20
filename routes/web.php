@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LoggedController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +33,9 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/guest/index', [GuestController :: class, 'index'])
     -> name('guest.index');
+
+Route::get('/logged/show/{id}', [LoggedController :: class, 'show'])
+    -> middleware('auth')
+    -> name('logged.show');
 
 require __DIR__.'/auth.php';

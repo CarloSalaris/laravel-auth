@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container text-center">
+    <div class="container text-center mt-5">
 
         <h1>Projects list</h1>
 
@@ -10,9 +10,10 @@
                 <ul class="list-unstyled">
                     @foreach ($projects as $project)
                         <li>
-                            <div class="border p-3 my-3">
-                                <a class="text-decoration-none" href="#">{{ $project->title }}</a>
-                            </div>
+                            <a class="d-block text-decoration-none border rounded p-3 my-3"
+                                href=" {{ route('logged.show', $project->id) }} ">
+                                {{ $project->title }}
+                            </a>
                         </li>
                     @endforeach
                 </ul>

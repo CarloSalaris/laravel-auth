@@ -18,9 +18,9 @@ class ProjectFactory extends Factory
     {
         return [
 
-            "title" => str_replace(' ', '_', fake() -> sentence(2)),
-            "framework" => fake() -> randomElement(['Laravel', 'VUE', false]),
-            "description" => fake() -> paragraph()
+            "title" => str_replace('.', ' ', str_replace(' ', '_', fake() -> sentence(2))),
+            "framework" => fake() -> randomElement(['Laravel', 'VUE', 'none']),
+            "description" => fake() -> text()
         ];
     }
 }
